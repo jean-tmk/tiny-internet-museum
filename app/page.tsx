@@ -128,12 +128,13 @@ export default function Museum() {
           <small>OBJECT / {String(active+1).padStart(3,"0")}<br/>TIM—{artifact.year}</small>
           <b>+</b>
         </div>
-        <section className="drawerCopy"><small>ACQUIRED / {artifact.year}</small><h2>{artifact.title}</h2><p>{artifact.story}</p><div className="tags">{artifact.tags.map(tag=><span key={tag}>{tag}</span>)}</div><div className="archiveLine"><i/>DIGITALLY PRESERVED<br/>ORIGINAL CONDITION UNKNOWN</div></section>
+        <section className="drawerCopy"><small>ACQUIRED / {artifact.year}</small><h2>{artifact.title}</h2><p>{artifact.story}</p><div className="tags">{artifact.tags.map(tag=><span key={tag}>{tag}</span>)}</div><div className="archiveLine"><i/>DIGITALLY PRESERVED · ORIGINAL CONDITION UNKNOWN</div><div className="objectData"><span><small>ERA</small><b>{artifact.year}</b></span><span><small>MEDIUM</small><b>{artifact.type}</b></span><span><small>STATUS</small><b>INTERACTIVE</b></span></div></section>
       </div>
       <div className="interact">
         <span>INTERACTION</span><p>{artifact.interaction}</p>
         {artifact.id === "guestbook" ? <form onSubmit={e=>{e.preventDefault();if(!guest.trim())return;setSavedGuest(guest);setGuest("");flash("GUESTBOOK SIGNED")}}><input value={guest} onChange={e=>setGuest(e.target.value)} placeholder="leave a name or tiny note"/><button>SIGN</button>{savedGuest&&<em>“{savedGuest}” is here until this tab closes.</em>}</form> : <button className={playing?"playing":""} onClick={activate}>{artifact.id === "midi-room"?(playing?"PLAYING…":"PLAY THE FILE"):artifact.id === "hit-counter"?"COUNT THIS VISIT":artifact.id === "web-ring"?"FOLLOW THE WEBRING":artifact.id === "cursor-trail"?(trailOn?"TURN TRAIL OFF":"TURN TRAIL ON"):artifact.id === "dithered-sky"?(lowBandwidth?"RESTORE FULL COLOR":"SIMULATE 28.8K"):artifact.id === "under-construction"?"RESUME CONSTRUCTION":"ACTIVATE ARTIFACT"}</button>}
       </div>
+      <div className="drawerFooterArt" aria-hidden="true"><span>TIM ARCHIVE</span><div><i/><i/><i/><i/><i/><i/><i/><i/></div><b>{String(active+1).padStart(2,"0")}—{artifact.year}</b></div>
     </div>
     <footer><span>HANDMADE WEB / PERMANENTLY UNFINISHED</span><span>← → NAVIGATE · ENTER INSPECT · ESC CLOSE</span></footer>
   </main>;
