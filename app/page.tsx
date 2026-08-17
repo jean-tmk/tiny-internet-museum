@@ -121,12 +121,18 @@ export default function Museum() {
     <div className={`drawer ${open?"open":""}`} aria-hidden={!open}>
       <button className="close" onClick={()=>setOpen(false)}>CLOSE ×</button>
       <div className="drawerHero">
-        <div className={`drawerRelic object-${artifact.id}`} aria-hidden="true">
-          <div className="drawerNumber">{String(active+1).padStart(2,"0")}</div>
-          <span>{artifact.id === "hit-counter" ? String(visits).padStart(6,"0") : artifact.symbol}</span>
-          <i/><i/><i/>
-          <small>OBJECT / {String(active+1).padStart(3,"0")}<br/>TIM—{artifact.year}</small>
-          <b>+</b>
+        <div className="drawerVisual">
+          <div className={`drawerRelic drawerRelic-${artifact.id}`} aria-hidden="true">
+            <span className="drawerGlyph">{artifact.id === "hit-counter" ? String(visits).padStart(6,"0") : artifact.symbol}</span>
+            <i/><i/><i/>
+            <b>+</b>
+          </div>
+          <div className="visualLedger">
+            <div className="drawerNumber"><small>ACCESSION</small>{String(active+1).padStart(2,"0")}</div>
+            <p>OBJECT / {String(active+1).padStart(3,"0")}<br/>TIM—{artifact.year}<br/>WEB COLLECTION 01</p>
+            <div className="signalBars"><i/><i/><i/><i/><i/><i/><i/><i/><i/></div>
+            <span>ARCHIVE SIGNAL<br/><b>STABLE</b></span>
+          </div>
         </div>
         <section className="drawerCopy"><small>ACQUIRED / {artifact.year}</small><h2>{artifact.title}</h2><p>{artifact.story}</p><div className="tags">{artifact.tags.map(tag=><span key={tag}>{tag}</span>)}</div><div className="archiveLine"><i/>DIGITALLY PRESERVED · ORIGINAL CONDITION UNKNOWN</div><div className="objectData"><span><small>ERA</small><b>{artifact.year}</b></span><span><small>MEDIUM</small><b>{artifact.type}</b></span><span><small>STATUS</small><b>INTERACTIVE</b></span></div></section>
       </div>
