@@ -5,6 +5,16 @@ import artifacts from "../data/artifacts.json";
 
 type Artifact = typeof artifacts[number];
 
+function ArtifactVisual({ id, visits }: { id: string; visits: number }) {
+  if (id === "under-construction") return <div className="relic construction"><span>UNDER</span><i /><b>CONSTRUCTION</b></div>;
+  if (id === "guestbook") return <div className="relic guestbook"><span>GUESTBOOK</span><i /><b>sign here</b></div>;
+  if (id === "hit-counter") return <div className="relic counter"><small>YOU ARE VISITOR</small><b>{String(visits).padStart(6, "0")}</b></div>;
+  if (id === "cursor-trail") return <div className="relic cursor"><b>↖</b><i>+</i><i>+</i><i>+</i></div>;
+  if (id === "midi-room") return <div className="relic midi"><span>midi player</span><b>▶</b><i /><small>00:03</small></div>;
+  if (id === "dithered-sky") return <div className="relic dither"><i /><i /><i /><b>28.8k sky</b></div>;
+  return <div className="relic webring"><small>← PREV</small><b>WEB<br/>RING</b><small>NEXT →</small></div>;
+}
+
 export default function Museum() {
   const [active, setActive] = useState<Artifact | null>(null);
   const [visits, setVisits] = useState(42);
@@ -97,8 +107,7 @@ export default function Museum() {
               >
                 <small>ROOM {String(index + 1).padStart(2, "0")} · {artifact.year}</small>
                 <div className="tinyObject" aria-hidden="true">
-                  <i /><i />
-                  <strong>{artifact.id === "hit-counter" ? String(visits).padStart(6, "0") : artifact.symbol}</strong>
+                  <ArtifactVisual id={artifact.id} visits={visits} />
                 </div>
                 <span>{artifact.title}</span>
               </button>
@@ -122,8 +131,7 @@ export default function Museum() {
             <div className="specimenBar"><span>museum_object_{active.id}.html</span><button onClick={() => setActive(null)} aria-label="Close">×</button></div>
             <div className="specimenBody">
               <div className={`largeObject artifact-${active.id}`}>
-                <i /><i />
-                <strong>{active.id === "hit-counter" ? String(visits).padStart(6, "0") : active.symbol}</strong>
+                <ArtifactVisual id={active.id} visits={visits} />
               </div>
               <section><small>ACCESSION {active.year} / {active.type}</small><h2>{active.title}</h2><p>{active.story}</p><div className="tags">{active.tags.map(tag => <span key={tag}>{tag}</span>)}</div></section>
               <div className="interaction">
