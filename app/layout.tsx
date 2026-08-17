@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./relics.css";
 
 export const metadata: Metadata = {
   title: "The Tiny Internet Museum",
