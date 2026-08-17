@@ -1,0 +1,100 @@
+{
+  "count": 7,
+  "index": [
+    {
+      "id": "under-construction",
+      "tokens": [
+        "animated",
+        "construction",
+        "gif",
+        "homepage",
+        "under",
+        "warning"
+      ],
+      "weight": 7
+    },
+    {
+      "id": "guestbook",
+      "tokens": [
+        "10",
+        "community",
+        "fossil",
+        "guestbook",
+        "message",
+        "social",
+        "the",
+        "web"
+      ],
+      "weight": 6
+    },
+    {
+      "id": "hit-counter",
+      "tokens": [
+        "000042",
+        "attention",
+        "counter",
+        "hit",
+        "instrument",
+        "metrics",
+        "no",
+        "visitor"
+      ],
+      "weight": 5
+    },
+    {
+      "id": "cursor-trail",
+      "tokens": [
+        "cursor",
+        "javascript",
+        "ornament",
+        "pointer",
+        "sparkle",
+        "trail"
+      ],
+      "weight": 4
+    },
+    {
+      "id": "midi-room",
+      "tokens": [
+        "atmosphere",
+        "audio",
+        "autoplay",
+        "compressed",
+        "midi",
+        "music",
+        "welcome"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "dithered-sky",
+      "tokens": [
+        "bandwidth",
+        "compression",
+        "dither",
+        "dithered",
+        "image",
+        "landscape",
+        "sky"
+      ],
+      "weight": 2
+    },
+    {
+      "id": "web-ring",
+      "tokens": [
+        "a",
+        "community",
+        "discovery",
+        "engine",
+        "human",
+        "navigation",
+        "ring",
+        "search",
+        "small",
+        "very",
+        "web"
+      ],
+      "weight": 1
+    }
+  ]
+}
